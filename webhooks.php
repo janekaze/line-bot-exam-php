@@ -1,5 +1,5 @@
 <?php // callback.php
-
+date_default_timezone_set('UTC');
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
@@ -19,7 +19,7 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			//Convert TimeStamp.
 			$epoch = $event['timestamp'];
-			$dt = date('r', $epoch);
+			$dt = date('G:i:s', $epoch);
 			$text = $dt . "\n " . 'Your iD: ' . $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
