@@ -67,6 +67,8 @@ if (!is_null($events['events'])) {
 				$response3 = $bot->pushMessage($User_ID, $textMessageBuilder2);					
 			} else {
 			    error_log($response2->getHTTPStatus() . ' ' . $response2->getRawBody());
+				$textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($response2->getHTTPStatus() . ' ' . $response2->getRawBody());
+				$response3 = $bot->pushMessage($User_ID, $textMessageBuilder2);	
 			}
 		}
 	}
