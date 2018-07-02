@@ -19,7 +19,7 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			//Convert TimeStamp.
 			$epoch = $event['timestamp'];
-			$dt = date('G:i:s', $epoch);
+			$dt = date('H:i:s', $epoch);
 			$text = $dt . "\n " . 'Your iD: ' . $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
