@@ -5,6 +5,7 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 $access_token = 'AklGxwOyremF+3ylRbytkKDzWvNBp6RHjvZ6nf+itkgDU4RFLdoPeUULnip1HrmEVtFom7cp0zpfixl4Y4S7zBOnpPCadx7/mIasRuQqZGFd242oxeI8YUr3z9PbouCKygMyDXGKfyUrY5+GAL3F/AdB04t89/1O/w1cDnyilFU=';
 $User_Token = '794GVAyhWqChqCwXnUTVgXrmWOtlWVeAKEj6msS6J7F'
+$User_ID = 'U0954bd96fe543817013f1d5ae9998a54'
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -62,13 +63,13 @@ if (!is_null($events['events'])) {
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
+			$url = 'POST https://api.line.me/v2/bot/message/push';
 			$data = [
-				'replyToken' => $User_Token,
+				'to' => $User_ID,
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $User_Token);
 
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
