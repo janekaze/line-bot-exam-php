@@ -20,7 +20,7 @@ $Get_Data = $_GET['data'];
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($Get_Data);
 $response = $bot->pushMessage($pushID, $textMessageBuilder);
 
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+echo $response->getHTTPStatus() . ' ' . $response->getRawBody() . ' ' . $response->$Get_Data;
 
 
 
