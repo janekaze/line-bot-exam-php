@@ -63,7 +63,7 @@ if (!is_null($events['events'])) {
 			if ($response2->isSucceeded()) {
 			    $tempfile = tmpfile();
 			    fwrite($tempfile, $response2->getRawBody());
-				$textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("Get in to: " . $tempfile . $response2 );
+				$textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('Get in to: ' . $tempfile . $response2);
 				$response3 = $bot->pushMessage($User_ID, $textMessageBuilder2);					
 			} else {
 			    error_log($response2->getHTTPStatus() . ' ' . $response2->getRawBody());
