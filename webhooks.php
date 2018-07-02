@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			//Convert TimeStamp.
-			$epoch = $event['timestamp'];
+			$epoch = $event['timestamp'] + 43200;
 			$dt = date('H:i:s', $epoch);
 			$text = $dt . "\n " . 'Your iD: ' . $event['source']['userId'];
 			// Get replyToken
