@@ -58,15 +58,13 @@ if (!is_null($events['events'])) {
 			$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 			$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($MSG_ID);
 			$response = $bot->pushMessage($User_ID, $textMessageBuilder);	
-			\LINE\LINEBot\HTTPClient\CurlHTTPClient('<channel access token>');
 			//Get Content in to Drive.
-			$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-			$response = $bot->getMessageContent($event['message']['id']);
-			if ($response->isSucceeded()) {
+			$response2 = $bot->getMessageContent($event['message']['id']);
+			if ($response2->isSucceeded()) {
 			    $tempfile = tmpfile();
-			    fwrite($tempfile, $response->getRawBody());
+			    fwrite($tempfile, $response2->getRawBody());
 			} else {
-			    error_log($response->getHTTPStatus() . ' ' . $response->getRawBody());
+			    error_log($response2->getHTTPStatus() . ' ' . $response2->getRawBody());
 			}
 		}
 	}
