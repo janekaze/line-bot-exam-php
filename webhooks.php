@@ -4,7 +4,7 @@ require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 $access_token = 'AklGxwOyremF+3ylRbytkKDzWvNBp6RHjvZ6nf+itkgDU4RFLdoPeUULnip1HrmEVtFom7cp0zpfixl4Y4S7zBOnpPCadx7/mIasRuQqZGFd242oxeI8YUr3z9PbouCKygMyDXGKfyUrY5+GAL3F/AdB04t89/1O/w1cDnyilFU=';
-
+$User_Token = 'U0954bd96fe543817013f1d5ae9998a54'
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -51,7 +51,7 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 		}
 		if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
-			$MSG_ID = $event['message']['id'];
+			$MSG_ID = 'MSG ID: ' . $event['message']['id'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -64,7 +64,7 @@ if (!is_null($events['events'])) {
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
-				'replyToken' => $replyToken,
+				'replyToken' => $User_Token,
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
