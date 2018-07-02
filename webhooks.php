@@ -10,7 +10,7 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 //Reply MSG
-replyMessage($events)
+
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$text = 'Your iD: ' . $event['source']['userId'];
+			$text = 'Your iD: ' . $events . $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
